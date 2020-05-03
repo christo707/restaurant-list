@@ -10,13 +10,14 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 })
 export class ListsComponent implements OnInit {
 
+  loading: boolean = true;
   restaurants;
 
   displayedColumns = ['id', 'name', 'cuisines', 'rating', 'avg', 'details'];
   dataSource: MatTableDataSource<Restaurant>;
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
+  @ViewChild(MatSort ,{static: false}) sort: MatSort;
 
   openDialog(row: Restaurant): void {
       const dialogRef = this.dialog.open(DialogRestaurant, {
@@ -28,6 +29,7 @@ export class ListsComponent implements OnInit {
       dialogRef.afterClosed().subscribe(result => {
         console.log('Restarant ' + row.id + ' Dialog closed.');
       });
+
     }
 
 
@@ -54,6 +56,7 @@ export class ListsComponent implements OnInit {
         this.dataSource = new MatTableDataSource(this.restaurants);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
+        this.loading = false;
     })
   }
 
@@ -104,7 +107,7 @@ export class DialogRestaurant {
 
   constructor(
     public dialogRef: MatDialogRef<DialogRestaurant>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+    @Inject(MAT_DIALOG_DATA) public data: Restaurant) {}
 
   onNoClick(): void {
     this.dialogRef.close();
