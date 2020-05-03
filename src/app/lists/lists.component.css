@@ -1,0 +1,78 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.example-header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
+
+.restaurant-toolbar {
+  margin-top: 55px;
+
+}
+
+.restaurant-card {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.option-button:hover  {
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px #512DA8;
+  font-weight:bold;
+}
+
+.header-card {
+  padding: 10px;
+  color: black;
+  /* needed styles below */
+  width: 100%;
+  display: flex !important;
+ justify-content: space-between;
+}
+
+
+.card-container-right{
+  display: inline;
+  float: right;
+}
+
+.card-container-center{
+  width: 100%;
+  text-align: center;
+}
+
+
+.card-container-left{
+  display: inline;
+}
+
+
+.loader-restaurant-parent {
+    height: 100%;
+    width:100%;
+}
+
+.loader-restaurant-img {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    width: 250px;
+    height:250px;
+    margin:auto;
+}

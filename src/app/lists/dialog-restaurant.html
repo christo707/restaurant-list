@@ -1,0 +1,39 @@
+<h1 mat-dialog-title style="text-align: center;">Restaurant Info</h1>
+<div mat-dialog-content>
+  <mat-label><b>Restaurant Id : </b></mat-label>
+  <mat-label>
+    {{data.id}}
+  </mat-label>
+   <br><br>
+<mat-label><b>Restaurant Name : </b></mat-label>
+  <mat-label>{{data.name }}</mat-label>
+   <br><br>
+  <mat-label><b>Cuisines: </b></mat-label>
+  <mat-label>
+    <span *ngIf="data.cuisines==''"> - </span>
+ <span *ngIf="data.cuisines!=''"> {{data.cuisines}} </span>
+  </mat-label>
+   <br><br>
+  <mat-label><b>Average Cost for 2 : </b></mat-label>
+  <mat-label>
+    <span *ngIf="data.avg=='0'"> - </span>
+    <span *ngIf="data.avg!='0'"> {{data.avg}} </span>
+  </mat-label>
+   <br><br>
+  <mat-label><b>Currency Accepted : </b></mat-label>
+  <mat-label>{{data.curr }}</mat-label>
+   <br><br>
+  <mat-label><b>Booking Services : </b></mat-label>
+  <span *ngIf="data.tablebooking == 'No' && data.delivery == 'No'"> N/A </span>
+  <mat-label *ngIf="data.tablebooking == 'Yes'"> Table</mat-label>
+  <mat-label *ngIf="data.tablebooking == 'Yes' && data.delivery == 'Yes'"> Table,</mat-label>
+  <mat-label *ngIf="data.delivery == 'Yes'"> Delivery</mat-label>
+   <br><br>
+  <mat-label><b>Rating : </b></mat-label>
+  <mat-label [style.color]="getColor(data.color)">{{data.rating }} ({{data.ratingtext }})</mat-label>
+
+   <br><br>
+  <mat-label><b>People Voted : </b></mat-label>
+  <mat-label>{{data.votes }}</mat-label>
+
+</div>
